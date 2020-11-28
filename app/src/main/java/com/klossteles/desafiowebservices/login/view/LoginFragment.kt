@@ -1,5 +1,6 @@
 package com.klossteles.desafiowebservices.login.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.klossteles.desafiowebservices.HomeActivity
 import com.klossteles.desafiowebservices.R
 
 class LoginFragment : Fragment() {
@@ -45,8 +47,9 @@ class LoginFragment : Fragment() {
             val password = view.findViewById<TextInputEditText>(R.id.edtPasswordLogin)?.text.toString()
             success = checkPassword(password, view, success)
             if (success) {
-                val navController = findNavController()
-                navController.navigate(R.id.action_loginFragment_to_comicListFragment)
+                val intent = Intent(view.context, HomeActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.klossteles.desafiowebservices.register.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,10 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.klossteles.desafiowebservices.HomeActivity
 import com.klossteles.desafiowebservices.R
 
 class RegisterFragment : Fragment() {
@@ -41,7 +42,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun register(view: View) {
-        view.findViewById<Button>(R.id.btnRegister).setOnClickListener {
+        view.findViewById<Button>(R.id.btnSave).setOnClickListener {
             var success = true
             val name = view.findViewById<TextInputEditText>(R.id.edtNameRegister)?.text.toString()
             if (name.isEmpty()) {
@@ -59,8 +60,9 @@ class RegisterFragment : Fragment() {
             success = checkPassword(password, view, success)
 
             if (success) {
-                val navController = findNavController()
-//                navController.navigate(R.id.action_registerFragment_to_restaurantsListFragment)
+               val intent = Intent(view.context, HomeActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
             }
         }
     }

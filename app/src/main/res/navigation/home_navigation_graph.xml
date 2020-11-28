@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation_graph"
+    app:startDestination="@id/comicListFragment">
+
+    <fragment
+        android:id="@+id/comicListFragment"
+        android:name="com.klossteles.desafiowebservices.comic.view.ComicListFragment"
+        android:label="fragment_comic_list"
+        tools:layout="@layout/fragment_comic_list" >
+        <action
+            android:id="@+id/action_comicListFragment_to_comicFragment"
+            app:destination="@id/comicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comicFragment"
+        android:name="com.klossteles.desafiowebservices.comic.view.ComicFragment"
+        android:label="fragment_comic"
+        tools:layout="@layout/fragment_comic" >
+        <action
+            android:id="@+id/action_comicFragment_to_comicListFragment"
+            app:destination="@id/comicListFragment"
+            app:popUpTo="@id/comicListFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_comicFragment_to_comicCoverFullscreenFragment"
+            app:destination="@id/comicCoverFullscreenFragment"
+            app:popUpTo="@id/comicCoverFullscreenFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <dialog
+        android:id="@+id/comicCoverFullscreenFragment"
+        android:name="com.klossteles.desafiowebservices.comic.view.ComicCoverFullscreenFragment"
+        android:label="ComicCoverFullscreenFragment" >
+    </dialog>
+</navigation>
