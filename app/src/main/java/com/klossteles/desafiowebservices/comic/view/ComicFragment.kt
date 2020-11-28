@@ -44,8 +44,7 @@ class ComicFragment : Fragment() {
             this,
             ComicViewModel.ComicViewModelFactory(ComicRepository())
         ).get(ComicViewModel::class.java)
-
-        showLoading(true)
+        
         val comicDescription = arguments?.getString(ComicListFragment.COMICS_DESCRIPTION)
         val comicTitle = arguments?.getString(ComicListFragment.COMICS_TITLE)
         val comicDates = arguments?.get(ComicListFragment.COMICS_DATES)
@@ -62,7 +61,6 @@ class ComicFragment : Fragment() {
         val txtPrice = _view.findViewById<TextView>(R.id.txtPrice)
         val txtPage = _view.findViewById<TextView>(R.id.txtPage)
 
-        showLoading(true)
         txtTitleComic.text = comicTitle
         if (comicDescription != null) {
                 txtDescriptionComic.text = comicDescription
@@ -92,7 +90,6 @@ class ComicFragment : Fragment() {
                 )
             ).into(imgLandscape)
         }
-        showLoading(false)
         setBackNavigation()
 
         imgComicCover.setOnClickListener {
@@ -106,16 +103,6 @@ class ComicFragment : Fragment() {
         _view.findViewById<ImageView>(R.id.imgBackComic).setOnClickListener {
             val navController = findNavController()
             navController.navigateUp()
-        }
-    }
-
-    private fun showLoading(isLoading: Boolean) {
-        val viewLoading = _view.findViewById<View>(R.id.comicLoading)
-
-        if (isLoading) {
-            viewLoading.visibility = View.VISIBLE
-        } else {
-            viewLoading.visibility = View.GONE
         }
     }
 
