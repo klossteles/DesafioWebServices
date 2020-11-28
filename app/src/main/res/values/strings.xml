@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">DesafioWebServices</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="insert_name">Insira um nome</string>
+    <string name="insert_email">Insert email</string>
+    <string name="password_cannot_be_null">Password cannot be empty</string>
+    <string name="must_contain_at_least_6_characters">Must contain at least 6 characters</string>
+    <string name="back">Back</string>
+    <string name="welcome_to_the_marvel_hq_s">Welcome to the Marvel HQ\'s</string>
+    <string name="remember">Remember</string>
+    <string name="create_account">Create account</string>
+    <string name="save">Save</string>
+    <string name="register_image">Register image</string>
+    <string name="splash_image">Splash Image</string>
+    <string name="marvel_logo">Marvel logo</string>
+    <string name="comic_image">Comic image</string>
+    <string name="comic_landscape">Comic Landscape</string>
+    <string name="comic_cover_image">Comic cover image</string>
+    <string name="comic_image_cover">Comic image cover</string>
+    <string name="published">Published:</string>
+    <string name="price">Price:</string>
+    <string name="pages">Pages:</string>
+</resources>

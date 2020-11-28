@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".comic.view.ComicFragment"
+    android:background="@color/color_dark_blue">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgLandscape"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_220dp"
+            android:contentDescription="@string/comic_landscape"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/landscape_incredible"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rlComicImage"
+            android:background="@color/color_white"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:contentDescription="@string/comic_cover_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/comicToolbar"
+            >
+
+            <ImageView
+                android:id="@+id/imgComicCover"
+                android:layout_width="@dimen/dimen_150dp"
+                android:layout_height="@dimen/dimen_200dp"
+                tools:src="@drawable/comic_image"
+                android:scaleType="fitXY"
+                android:padding="@dimen/dimen_5dp"
+                android:contentDescription="@string/comic_image_cover"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtTitleComic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dimen_20sp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/color_white"
+            android:layout_margin="@dimen/dimen_10dp"
+            tools:text="AMAZING SPIDER-MAN VOL. 2 HC (Hardcover)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlComicImage"
+            />
+
+        <TextView
+            android:id="@+id/txtDescriptionComic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            app:layout_constraintTop_toBottomOf="@id/txtTitleComic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/dimen_16sp"
+            tools:text="The Spider-Verse is here! When the Inheritors begin exterminating spider-characters throughout the multiverse, every single Spider-Man ever is needed to save the day! A spider-army gathers, including Miles Morales, Spider-Gwen, Silk, Spider-Woman, Mayday Parker, Kaine, Ben Reilly, Spider-Man 2099, Spider-Ham and scores more...but how can they defeat Morlun's deadly family when Peter faces a power struggle against a ghost from his past: Doctor Octopus, the Superior Spider-Man?! COLLECTING: Amazing Spider-Man #7-18, Superior Spider-Man #32-33, Free Comic Book Day 2014 (Guardians of the Galaxy) #1 (Spider-Man story)."
+            />
+
+        <TextView
+            android:id="@+id/txtPublishedFixed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            app:layout_constraintTop_toBottomOf="@id/txtDescriptionComic"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/published"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/color_white"
+            />
+
+        <TextView
+            android:id="@+id/txtPublished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            app:layout_constraintTop_toBottomOf="@id/txtDescriptionComic"
+            app:layout_constraintStart_toEndOf="@id/txtPublishedFixed"
+            tools:text="April 30, 2014"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/color_white"
+            />
+
+        <TextView
+            android:id="@+id/txtPriceFixed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            app:layout_constraintTop_toBottomOf="@id/txtPublishedFixed"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/price"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/color_white"
+            />
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            app:layout_constraintTop_toBottomOf="@id/txtPublishedFixed"
+            app:layout_constraintStart_toEndOf="@id/txtPriceFixed"
+            tools:text="$ 5,99"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/color_white"
+            />
+
+        <TextView
+            android:id="@+id/txtPageFixed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            app:layout_constraintTop_toBottomOf="@id/txtPriceFixed"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/pages"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/color_white"
+            />
+
+        <TextView
+            android:id="@+id/txtPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            app:layout_constraintTop_toBottomOf="@id/txtPriceFixed"
+            app:layout_constraintStart_toEndOf="@id/txtPriceFixed"
+            tools:text="38"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/color_white"
+            />
+
+        <LinearLayout
+            android:id="@+id/comicLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/comicToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            android:padding="@dimen/dimen_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgBackComic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/back"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:tint="@color/color_white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
