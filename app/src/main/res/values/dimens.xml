@@ -20,4 +20,6 @@
     <dimen name="dimen_5dp">5dp</dimen>
     <dimen name="dimen_220dp">220dp</dimen>
     <dimen name="dimen_16sp">16sp</dimen>
+    <dimen name="dimen_350dp">350dp</dimen>
+    <dimen name="dimen_550dp">550dp</dimen>
 </resources>

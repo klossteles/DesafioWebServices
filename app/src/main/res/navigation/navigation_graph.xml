@@ -53,5 +53,15 @@
             app:destination="@id/comicListFragment"
             app:popUpTo="@id/comicListFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_comicFragment_to_comicCoverFullscreenFragment"
+            app:destination="@id/comicCoverFullscreenFragment"
+            app:popUpTo="@id/comicCoverFullscreenFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
+    <dialog
+        android:id="@+id/comicCoverFullscreenFragment"
+        android:name="com.klossteles.desafiowebservices.comic.view.ComicCoverFullscreenFragment"
+        android:label="ComicCoverFullscreenFragment" >
+    </dialog>
 </navigation>

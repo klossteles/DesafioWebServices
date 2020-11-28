@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_dark_blue">
+
+    <ImageView
+        android:id="@+id/icCloseDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_baseline_close_24"
+        android:contentDescription="@string/close_dialog_icon"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        app:tint="@color/color_white" />
+
+    <ImageView
+        android:id="@+id/imgCoverFullscreen"
+        android:layout_width="@dimen/dimen_350dp"
+        android:layout_height="@dimen/dimen_550dp"
+        android:padding="@dimen/dimen_5dp"
+        android:layout_margin="@dimen/dimen_20dp"
+        android:contentDescription="@string/image_fullscreen_dialog"
+        android:background="@color/color_white"
+        tools:src="@drawable/comic_image"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icCloseDialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

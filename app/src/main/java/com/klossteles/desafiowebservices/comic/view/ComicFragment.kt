@@ -1,13 +1,17 @@
 package com.klossteles.desafiowebservices.comic.view
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.klossteles.desafiowebservices.R
@@ -18,6 +22,7 @@ import com.klossteles.desafiowebservices.comic.viewmodel.ComicViewModel
 import com.klossteles.desafiowebservices.data.model.ThumbnailModel
 import com.squareup.picasso.Picasso
 import java.util.*
+
 
 class ComicFragment : Fragment() {
     private lateinit var _view: View
@@ -67,7 +72,11 @@ class ComicFragment : Fragment() {
                 if (date.type?.contains("onsaleDate") == true){
                     var calendar = Calendar.getInstance()
                     calendar.time = date.date!!
-                    txtPublished.text = "${calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault())} ${calendar.get(Calendar.DAY_OF_MONTH)}, ${calendar.get(Calendar.YEAR)}"
+                    txtPublished.text = "${calendar.getDisplayName(
+                        Calendar.MONTH,
+                        Calendar.LONG,
+                        Locale.getDefault()
+                    )} ${calendar.get(Calendar.DAY_OF_MONTH)}, ${calendar.get(Calendar.YEAR)}"
                 }
             }
         }
@@ -77,10 +86,20 @@ class ComicFragment : Fragment() {
         txtPage.text = comicPages?.toString()
         Picasso.get().load(comicThumbnail).into(imgComicCover)
         if (comicImages != null) {
-            Picasso.get().load((comicImages as List<ThumbnailModel>)[(comicImages as List<ThumbnailModel>).size - 1].getImagePath("landscape_incredible")).into(imgLandscape)
+            Picasso.get().load(
+                (comicImages as List<ThumbnailModel>)[(comicImages as List<ThumbnailModel>).size - 1].getImagePath(
+                    "landscape_incredible"
+                )
+            ).into(imgLandscape)
         }
         showLoading(false)
         setBackNavigation()
+
+        imgComicCover.setOnClickListener {
+            val navController = findNavController()
+            val bundle = bundleOf(COMIC_IMAGE to comicThumbnail)
+            navController.navigate(R.id.action_comicFragment_to_comicCoverFullscreenFragment, bundle)
+        }
     }
 
     private fun setBackNavigation() {
@@ -98,5 +117,9 @@ class ComicFragment : Fragment() {
         } else {
             viewLoading.visibility = View.GONE
         }
+    }
+
+    companion object {
+        const val COMIC_IMAGE = "COMIC_IMAGE"
     }
 }

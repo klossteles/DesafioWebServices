@@ -24,4 +24,6 @@
     <string name="published">Published:</string>
     <string name="price">Price:</string>
     <string name="pages">Pages:</string>
+    <string name="image_fullscreen_dialog">Image fullscreen dialog</string>
+    <string name="close_dialog_icon">Close dialog icon</string>
 </resources>
