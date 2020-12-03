@@ -1,7 +1,6 @@
 package com.klossteles.desafiowebservices.comic.view
 
 import android.app.Dialog
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import com.klossteles.desafiowebservices.R
 import com.squareup.picasso.Picasso
 

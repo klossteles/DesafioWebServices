@@ -9,9 +9,9 @@ import com.klossteles.desafiowebservices.R
 import com.klossteles.desafiowebservices.comic.model.ComicsModel
 import com.squareup.picasso.Picasso
 
-class ComicListViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
-    private val number = view.findViewById<TextView>(R.id.txtComicNumber)
-    private val image = view.findViewById<ImageView>(R.id.comicImage)
+class ComicListViewHolder(_view: View): RecyclerView.ViewHolder(_view) {
+    private val number = _view.findViewById<TextView>(R.id.txtComicNumber)
+    private val image = _view.findViewById<ImageView>(R.id.comicImage)
 
     @SuppressLint("SetTextI18n")
     fun bind(comicModel: ComicsModel) {

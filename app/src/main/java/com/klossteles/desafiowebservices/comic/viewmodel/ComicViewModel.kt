@@ -17,10 +17,10 @@ class ComicViewModel (
         val response = _repository.getComics()
 
         _count = response.data.count
-        if (response.data.total != 0) {
-            _totalPages = response.data.total / _count
+        _totalPages = if (response.data.total != 0) {
+            response.data.total / _count
         } else {
-            _totalPages = 0
+            0
         }
         _comics = response.data.results
         emit(response.data.results)

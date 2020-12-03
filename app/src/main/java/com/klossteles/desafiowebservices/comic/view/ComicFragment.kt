@@ -1,17 +1,14 @@
 package com.klossteles.desafiowebservices.comic.view
 
 import android.annotation.SuppressLint
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.klossteles.desafiowebservices.R
@@ -68,7 +65,7 @@ class ComicFragment : Fragment() {
         if (comicDates != null) {
             for (date in comicDates as List<ComicDate>) {
                 if (date.type?.contains("onsaleDate") == true){
-                    var calendar = Calendar.getInstance()
+                    val calendar = Calendar.getInstance()
                     calendar.time = date.date!!
                     txtPublished.text = "${calendar.getDisplayName(
                         Calendar.MONTH,
@@ -85,7 +82,7 @@ class ComicFragment : Fragment() {
         Picasso.get().load(comicThumbnail).into(imgComicCover)
         if (comicImages != null) {
             Picasso.get().load(
-                (comicImages as List<ThumbnailModel>)[(comicImages as List<ThumbnailModel>).size - 1].getImagePath(
+                (comicImages as List<ThumbnailModel>)[comicImages.size - 1].getImagePath(
                     "landscape_incredible"
                 )
             ).into(imgLandscape)

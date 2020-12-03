@@ -12,7 +12,7 @@ class NetworkInterceptor : Interceptor {
         val apikey = PUBLIC_KEY
 
         var request = chain.request()
-        val originalHttpUrl = request.url();
+        val originalHttpUrl = request.url()
 
         val url = originalHttpUrl.newBuilder()
             .addQueryParameter(TS, ts)

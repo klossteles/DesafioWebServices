@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -37,7 +36,7 @@ class ComicListFragment : Fragment() {
 
         val list = _view.findViewById<RecyclerView>(R.id.rvComicList)
         val manager = GridLayoutManager(_view.context, 3)
-        _comics = mutableListOf<ComicsModel>()
+        _comics = mutableListOf()
         _listAdapter = ComicListAdapter(_comics) {
             val bundle = bundleOf(COMICS_ID to it.id,
                 COMICS_DESCRIPTION to it.description,
@@ -51,7 +50,7 @@ class ComicListFragment : Fragment() {
             _view.findNavController().navigate(R.id.action_comicListFragment_to_comicFragment, bundle)
         }
 
-        _recyclerView = _view.findViewById<RecyclerView>(R.id.rvComicList)
+        _recyclerView = _view.findViewById(R.id.rvComicList)
         list.apply {
             setHasFixedSize(true)
             layoutManager = manager
@@ -63,7 +62,7 @@ class ComicListFragment : Fragment() {
             ComicViewModel.ComicViewModelFactory(ComicRepository())
         ).get(ComicViewModel::class.java)
 
-        _viewModel.getList().observe(viewLifecycleOwner, Observer {
+        _viewModel.getList().observe(viewLifecycleOwner, {
             _comics.addAll(it)
             _listAdapter.notifyDataSetChanged()
             showLoading(false)
@@ -92,7 +91,7 @@ class ComicListFragment : Fragment() {
                     val lastItem = lastVisible + 6 >= totalItemCount
                     if (totalItemCount > 0 && lastItem) {
                         showLoading(true)
-                        _viewModel.nextPage().observe(viewLifecycleOwner, Observer {
+                        _viewModel.nextPage().observe(viewLifecycleOwner, {
                             _comics.addAll(it)
                             _listAdapter.notifyDataSetChanged()
                             showLoading(false)
